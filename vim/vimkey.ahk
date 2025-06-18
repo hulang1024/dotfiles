@@ -1,23 +1,20 @@
 ﻿CapsLock::LCtrl
 
-vimMode := false  ; 初始状态关闭
-F1::
+vimMode := false
+!z::
 {
-    ;HotKey "$F1", "Off"
-    ;Send "{F1}"
+    ;HotKey "!z", "Off"
+    ;Send "!z"
     ToggleVimMode()
-    ;HotKey "$F1", "On"
+    ;HotKey "!z", "On"
 }
 
 ToggleVimMode() {
     global vimMode
     vimMode := !vimMode
     SetNumLockState vimMode
-    ;ToolTip "Vim模式: " (vimMode ? "启用" : "禁用")
-    ;SetTimer ToolTip, -1000
 }
 
-; 条件热键定义
 #HotIf vimMode
     h::Left
     j::Down
