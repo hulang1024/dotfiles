@@ -34,7 +34,7 @@ augroup END
 " The ! means the package won't be loaded right away but when plugins are
 " loaded during initialization.
 if has('syntax') && has('eval')
-  packadd! matchit
+  packadd! 
 endif
 
 set nocompatible
@@ -71,6 +71,5 @@ call plug#begin()
   Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
-inoremap jk <Esc>
 nnoremap <silent> H :bprevious<CR>
 nnoremap <silent> L :bnext<CR>

@@ -30,9 +30,6 @@ set ideastatusicon=gray
 "set which-key
 
 "" --- mappings
-"set timeoutlen=500
-inoremap jk <Esc>
-inoremap kj <Esc>
 map Q gq
 " Code Go To
 "map gd <Action>(GotoDeclaration)
