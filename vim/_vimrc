@@ -40,7 +40,6 @@ endif
 
 set timeoutlen=100
 inoremap jk <Esc>
-inoremap kj <Esc>
 set lines=30
 set columns=120
 winpos 400 200

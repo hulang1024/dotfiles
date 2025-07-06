@@ -4,8 +4,10 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
 
 set scrolloff=5
+set history=300
 set showcmd
 set visualbell
+set
 set incsearch
 set number
 set relativenumber
@@ -18,7 +20,6 @@ set wildmenu
 set surround
 set argtextobj
 set textobj-entire
-set commentary
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
@@ -33,11 +34,18 @@ set ideastatusicon=gray
 inoremap jk <Esc>
 inoremap kj <Esc>
 map Q gq
+" Code Go To
+"map gd <Action>(GotoDeclaration)
+map gI <Action>(GotoImplementation)
+map gr <Action>(FindUsages)
+map gy <Action>(GotoTypeDeclaration)
+map gK <Action>(ParameterInfo)
 let mapleader="\<space>"
 " 定义命名空间，再按使用频率优化（最常用的拥有最少的按键）
 " Search
 map <leader><space> <Action>(SearchEverywhere)
 map <leader>/ <Action>(FindInPath)
+map <leader>sr <Action>(ReplaceInPath)
 map <leader>sa <Action>(GotoAction)
 " Explorer
 map <leader>e <Action>(SelectInProjectView)
@@ -45,8 +53,6 @@ map <leader>e <Action>(SelectInProjectView)
 map <leader>db <Action>(ToggleLineBreakpoint)
 map <leader>dd <Action>(Debug)
 map <leader>ds <Action>(Stop)
-" Code Go To
-map <leader>gi <Action>(GotoImplementation)
 " Code Refactor
 map <leader>rn <Action>(RenameElement)
 map <leader>rm <Action>(ExtractMethod)

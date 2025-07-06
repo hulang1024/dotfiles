@@ -13,7 +13,6 @@
     j::Down
     k::Up
 #HotIf
-#Requires AutoHotkey v2.0
 
 ; Chrome
 !F3:: {
