@@ -7,7 +7,6 @@ set scrolloff=5
 set history=300
 set showcmd
 set visualbell
-set
 set incsearch
 set number
 set relativenumber
@@ -20,43 +19,52 @@ set wildmenu
 set surround
 set argtextobj
 set textobj-entire
-" Highlight copied text
+
 Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+
 set keep-english-in-normal
 set ideajoin
 set ideastatusicon=gray
-"set which-key
-
 "" --- mappings
+" 与我的*vim的keymaps尽可能一致
+
 map Q gq
-" Code Go To
-"map gd <Action>(GotoDeclaration)
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [t :tabprevious<CR>
+nnoremap <silent> ]t :tabnext<CR>
+
+" Goto
+map gD <Action>(GotoDeclaration)
 map gI <Action>(GotoImplementation)
 map gr <Action>(FindUsages)
 map gy <Action>(GotoTypeDeclaration)
 map gK <Action>(ParameterInfo)
+"map K <Action>ShowHoverInfo
+
 let mapleader="\<space>"
-" 定义命名空间，再按使用频率优化（最常用的拥有最少的按键）
+
 " Search
 map <leader><space> <Action>(SearchEverywhere)
 map <leader>/ <Action>(FindInPath)
 map <leader>sr <Action>(ReplaceInPath)
-map <leader>sa <Action>(GotoAction)
+
 " Explorer
 map <leader>e <Action>(SelectInProjectView)
+
 " Debug
 map <leader>db <Action>(ToggleLineBreakpoint)
-map <leader>dd <Action>(Debug)
-map <leader>ds <Action>(Stop)
-" Code Refactor
-map <leader>rn <Action>(RenameElement)
-map <leader>rm <Action>(ExtractMethod)
-map <leader>rv <Action>(IntroduceVariable)
-map <leader>rc <Action>(IntroduceConstant)
-map <leader>rf <Action>(IntroduceField)
-" Code Format
+map <leader>ds <Action>(Debug)
+map <leader>de <Action>(Stop)
+
+" Code
+" Alt+Enter更方便
+map <leader>ca <Action>(ShowIntentionActions)
+" Alt+Shift
+map <leader>cg <Action>(Generate)
+map <leader>cr <Action>(RenameElement)
 map <leader>cf V<Action>(ReformatCode)
-" Other
-map <S-Space> <Action>(GotoNextError)

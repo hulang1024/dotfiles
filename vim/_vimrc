@@ -22,7 +22,6 @@ endif
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
-
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 augroup END
@@ -34,12 +33,17 @@ augroup END
 " The ! means the package won't be loaded right away but when plugins are
 " loaded during initialization.
 if has('syntax') && has('eval')
-  packadd! 
+  packadd! matchit
 endif
 
 set nocompatible
 syntax on
 filetype plugin indent on
+
+let &t_SI.="\e[6 q" " SI = INSERT mode
+let &t_SR.="\e[4 q" " SR = REPLACE mode
+let &t_EI.="\e[2 q" " EI = NORMAL mode (ELSE)
+
 set visualbell
 set showcmd
 set relativenumber
@@ -57,19 +61,20 @@ set nowritebackup
 set noswapfile
 set undodir=~/.vimundodir
 
-let &t_SI.="\e[6 q" " SI = INSERT mode
-let &t_SR.="\e[4 q" " SR = REPLACE mode
-let &t_EI.="\e[2 q" " EI = NORMAL mode (ELSE)
-
 call plug#begin()
+  " Plug 'morhetz/gruvbox'
+  Plug 'joshdick/onedark.vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'machakann/vim-highlightedyank'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
-  " Plug 'tpope/vim-repeat'
-  Plug 'vim-scripts/ReplaceWithRegister'
-  Plug 'christoomey/vim-system-copy'
-  Plug 'justinmk/vim-sneak'
-  Plug 'machakann/vim-highlightedyank'
+  Plug 'tpope/vim-unimpaired'
 call plug#end()
 
-nnoremap <silent> H :bprevious<CR>
-nnoremap <silent> L :bnext<CR>
+let g:highlightedyank_highlight_duration = 200
+
+set background=dark
+colorscheme onedark
+let g:airline_theme = 'onedark'
+
