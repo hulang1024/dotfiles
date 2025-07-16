@@ -1,19 +1,19 @@
 -- Options are automatically loaded before lazy.nstartup
 -- Default options that are always set: https://github.com/LazyLazyblob/main/lua/lazyconfig/options.lua
 -- Add any additional options here
-local opt = vim.opt
-local g = vim.g
 
-g.mapleader = " "
+vim.g.mapleader = " "
+
+local opt = vim.opt
 
 opt.encoding = "utf-8"
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
 
--- 在窗口标题栏显示当前文件名
 opt.backup = false
-opt.title = true
+-- 在窗口标题栏显示当前文件名
+-- opt.title = true
 opt.visualbell = true
 opt.clipboard = "unnamedplus"
 
@@ -40,3 +40,18 @@ opt.smartindent = true
 opt.smarttab = true
 -- 当一行文字被折行显示时，续行保持与首行相同的缩进
 opt.breakindent = true
+
+opt.shell = "powershell"
+
+opt.termguicolors = true
+
+opt.linespace = 2
+
+vim.g.autoformat = false
+
+if vim.g.neovide then
+    vim.o.guifont = "JetBrainsMonoNL Nerd Font:h10.5:#h-none"
+    vim.g.neovide_cursor_vfx_mode = ""
+    vim.g.neovide_cursor_animation_length = 0
+    vim.g.neovide_cursor_short_animation_length = 0
+end
