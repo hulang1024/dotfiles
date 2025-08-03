@@ -45,7 +45,6 @@ let &t_SR.="\e[4 q" " SR = REPLACE mode
 let &t_EI.="\e[2 q" " EI = NORMAL mode (ELSE)
 
 set visualbell
-set showcmd
 set relativenumber
 set number
 set hlsearch
@@ -70,11 +69,21 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-unimpaired'
+  Plug 'kana/vim-textobj-user'
+  Plug 'kana/vim-textobj-entire'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:highlightedyank_highlight_duration = 200
 
+set termguicolors
 set background=dark
+set noshowmode
 colorscheme onedark
 let g:airline_theme = 'onedark'
+
+nmap <C-p> :Files<CR>
+nmap <C-e> :Buffers<CR>
+let g:fzf_action = { 'ctrl-e': 'edit' }
 
